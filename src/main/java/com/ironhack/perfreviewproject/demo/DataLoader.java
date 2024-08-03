@@ -1,11 +1,9 @@
 package com.ironhack.perfreviewproject.demo;
 
-import com.ironhack.perfreviewproject.model.Role;
-import com.ironhack.perfreviewproject.model.User;
-import com.ironhack.perfreviewproject.service.EmployeeService;
-import com.ironhack.perfreviewproject.service.RoleService;
-import com.ironhack.perfreviewproject.service.UserService;
+import com.ironhack.perfreviewproject.model.*;
+import com.ironhack.perfreviewproject.service.*;
 import lombok.RequiredArgsConstructor;
+import net.datafaker.Faker;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -15,6 +13,13 @@ public class DataLoader implements CommandLineRunner {
 
     private final UserService userService;
     private final RoleService roleService;
+    private final EmployeeService employeeService;
+    private final ConfirmedEmployeeService confirmedEmployeeService;
+//    private final TemporaryEmployeeService temporaryEmployeeService;
+    private final ProcessService processService;
+    private final TemporaryEmployeeService temporaryEmployeeService;
+
+    Faker fk = new Faker();
 
     @Override
     public void run(String... args) throws Exception {
@@ -34,8 +39,21 @@ public class DataLoader implements CommandLineRunner {
         roleService.addRoleToUser("chris", "ROLE_USER");
         roleService.addRoleToUser("rattabar", "ROLE_ADMIN");
 
+        for (int i = 0; i < 10; i++) {
+            employeeService.addEmployee(new Employee(fk.name().firstName(), fk.name().lastName(), fk.internet().username(), fk.date().birthday(0, 5).toString()));
+        }
+
+        // Add new Confirmed Employee
+            confirmedEmployeeService.addConfirmedEmployee(new ConfirmedEmployee("Ayoub","RATTAB", "rattabar", "2019-06-30",15L, 5L));
+
+        // Add new Temporary Employee
+        temporaryEmployeeService.addTemporaryEmployee(new TemporaryEmployee("Andreas", "Iniesta", "ainiesta", "2024-06-01","2024-08-30"));
+
+
+
 
     }
+
 
 
 }

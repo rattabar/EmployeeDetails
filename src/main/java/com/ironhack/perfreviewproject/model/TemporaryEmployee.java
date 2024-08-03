@@ -12,9 +12,12 @@ import java.util.Date;
 @Data
 @Table(name = "temporaryEmployees")
 
-
 public class TemporaryEmployee extends Employee{
-    private Date endDate;
 
+    private String endDate;
 
+    public TemporaryEmployee(String firstName, String lastName, String login, String startDate, String endDate) {
+        super(firstName, lastName, login, startDate);
+        this.endDate = endDate;
+    }
 }

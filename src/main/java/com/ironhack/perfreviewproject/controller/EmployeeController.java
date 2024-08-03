@@ -30,15 +30,15 @@ public class EmployeeController {
         return employeeService.addEmployee(employee);
     }
 
-//    @PutMapping("/{employeeId}")
-//    public Employee updateEmployeeById(@PathVariable("employeeId") Long employeeId, @RequestBody Employee employee){
-//        return employeeService.updateEmployeeById(employeeId, employee);
-//    }
-
-    @PutMapping("/{login}")
-    public Employee updateEmployeeByLogin(@PathVariable("login") String login, @RequestBody Employee employee){
-        return employeeService.updateEmployeeByLogin(login, employee);
+    @PutMapping("/{employeeId}")
+    public Employee updateEmployeeById(@PathVariable("employeeId") Long employeeId, @RequestBody Employee employee){
+        return employeeService.updateEmployeeById(employeeId, employee);
     }
+
+//    @PutMapping("/{login}")
+//    public Optional<Employee> updateEmployeeByLogin(@PathVariable("login") String login, @RequestBody Employee employee){
+//        return employeeService.updateEmployeeByLogin(login, employee);
+//    }
 
     @DeleteMapping("/{employeeId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)

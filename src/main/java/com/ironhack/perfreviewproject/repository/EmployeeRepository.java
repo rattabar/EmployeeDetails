@@ -1,7 +1,6 @@
 package com.ironhack.perfreviewproject.repository;
 
 import com.ironhack.perfreviewproject.model.Employee;
-import com.ironhack.perfreviewproject.model.TemporaryEmployee;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

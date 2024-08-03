@@ -7,6 +7,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.OptionalInt;
 
 
 @Service
@@ -24,26 +26,26 @@ public class EmployeeService {
         return employeeRepository.save(employee);
     }
 
-//    public Employee updateEmployeeById(Long employeeId, Employee employee) {
-//        log.info("Updating employee {}", employee);
-//        var employeeToUpdate = employeeRepository.findById(employee.getEmployeeId()).orElseThrow();
-//        employeeToUpdate.setFirstName(employee.getFirstName());
-//        employeeToUpdate.setLastName(employee.getLastName());
-//        employeeToUpdate.setLogin(employee.getLogin());
-//        employeeToUpdate.setStartDate(employee.getStartDate());
-//        return employeeRepository.save(employeeToUpdate);
-//    }
-
-    public Employee updateEmployeeByLogin(String login, Employee employee){
-        log.info("Updating employee");
-        var employeeToUpdate = employeeRepository.findByLogin(employee.getLogin()).orElseThrow();
-        employeeToUpdate.setEmployeeId(employee.getEmployeeId());
+    public Employee updateEmployeeById(Long employeeId, Employee employee) {
+        log.info("Updating employee {}", employee);
+        var employeeToUpdate = employeeRepository.findById(employee.getEmployeeId()).orElseThrow();
         employeeToUpdate.setFirstName(employee.getFirstName());
         employeeToUpdate.setLastName(employee.getLastName());
         employeeToUpdate.setLogin(employee.getLogin());
         employeeToUpdate.setStartDate(employee.getStartDate());
         return employeeRepository.save(employeeToUpdate);
     }
+
+//    public Optional<Employee> updateEmployeeByLogin(String login, Employee employee){
+//        log.info("Updating employee");
+//        var employeeToUpdate = employeeRepository.findByLogin(employee.getLogin()).orElseThrow();
+//        employeeToUpdate.setEmployeeId(employee.getEmployeeId());
+//        employeeToUpdate.setFirstName(employee.getFirstName());
+//        employeeToUpdate.setLastName(employee.getLastName());
+//        employeeToUpdate.setLogin(employee.getLogin());
+//        employeeToUpdate.setStartDate(employee.getStartDate());
+//        return employeeRepository.save(employeeToUpdate);
+//    }
 
     public void deleteEmployee(Long employeeId){
         log.info("Deleting employee with id{}", employeeId);

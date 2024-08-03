@@ -19,12 +19,12 @@ public class ConfirmedEmployeeService {
             return confirmedEmployeeRepository.findAll();
         }
 
-        public ConfirmedEmployee addEmployee(ConfirmedEmployee confirmedEmployee) {
+        public ConfirmedEmployee addConfirmedEmployee(ConfirmedEmployee confirmedEmployee) {
             log.info("Adding employee {}", confirmedEmployee);
             return confirmedEmployeeRepository.save(confirmedEmployee);
         }
 
-        public ConfirmedEmployee updateEmployee(Long employeeId, ConfirmedEmployee confirmedEmployee) {
+        public ConfirmedEmployee updateConfirmedEmployeeById(Long employeeId, ConfirmedEmployee confirmedEmployee) {
             log.info("Updating employee");
             var employeeToUpdate = confirmedEmployeeRepository.findById(confirmedEmployee.getEmployeeId()).orElseThrow();
             employeeToUpdate.setFirstName(confirmedEmployee.getFirstName());
@@ -37,7 +37,7 @@ public class ConfirmedEmployeeService {
 
 
 
-        public void deleteEmployee(Long employeeId){
+        public void deleteConfirmedEmployee(Long employeeId){
             log.info("Deleting employee with id{}", employeeId);
             confirmedEmployeeRepository.deleteById(employeeId);
         }

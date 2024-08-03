@@ -11,11 +11,13 @@ import java.util.Date;
 @NoArgsConstructor
 @Data
 @Table(name = "confirmedEmployees")
+
 public class ConfirmedEmployee extends Employee{
     private double overTimeCounter;
     private float paidHolidaysCounter;
 
-    public ConfirmedEmployee(double overTimeCounter, float paidHolidaysCounter) {
+    public ConfirmedEmployee(String firstName, String lastName, String login, String startDate, double overTimeCounter, float paidHolidaysCounter) {
+        super(firstName, lastName, login, startDate );
         this.overTimeCounter = overTimeCounter;
         this.paidHolidaysCounter = paidHolidaysCounter;
     }
