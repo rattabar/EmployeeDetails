@@ -1,5 +1,6 @@
 package com.ironhack.perfreviewproject.controller;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.ironhack.perfreviewproject.model.Employee;
 import com.ironhack.perfreviewproject.service.EmployeeService;
 import jakarta.validation.Valid;
@@ -21,13 +22,15 @@ public class EmployeeController {
         return employeeService.findAll();
     }
 
+
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     public Employee addEmployee(@RequestBody @Valid Employee employee){
         return employeeService.addEmployee(employee);
     }
 
-    @PutMapping
+    @PutMapping("/{employeeId}")
     public Employee updateEmployee(@PathVariable("employeeId") Long employeeId, @RequestBody Employee employee){
         return employeeService.updateEmployee(employeeId, employee);
     }

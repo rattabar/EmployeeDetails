@@ -12,14 +12,14 @@ import lombok.NoArgsConstructor;
 
 public class Employee {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long employeeId;
 
     private String firstName;
     private String lastName;
     private String login;
 
-    public Employee(String firstName, String lastName, String login) {
+    public Employee(Long employeeId, String firstName, String lastName, String login) {
+        this.employeeId = employeeId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.login = login;
