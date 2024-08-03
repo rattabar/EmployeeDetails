@@ -9,11 +9,12 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 
-@Service("userDetailsService")
+@Service
 @RequiredArgsConstructor
 @Slf4j
 public class EmployeeService {
     private final EmployeeRepository employeeRepository;
+
     public List<Employee> findAll() {
         return employeeRepository.findAll();
     }
@@ -23,12 +24,24 @@ public class EmployeeService {
         return employeeRepository.save(employee);
     }
 
-    public Employee updateEmployee(Long employeeId, Employee employee) {
-        log.info("Updating employee {}", employee);
-        var employeeToUpdate = employeeRepository.findById(employee.getEmployeeId()).orElseThrow();
+//    public Employee updateEmployeeById(Long employeeId, Employee employee) {
+//        log.info("Updating employee {}", employee);
+//        var employeeToUpdate = employeeRepository.findById(employee.getEmployeeId()).orElseThrow();
+//        employeeToUpdate.setFirstName(employee.getFirstName());
+//        employeeToUpdate.setLastName(employee.getLastName());
+//        employeeToUpdate.setLogin(employee.getLogin());
+//        employeeToUpdate.setStartDate(employee.getStartDate());
+//        return employeeRepository.save(employeeToUpdate);
+//    }
+
+    public Employee updateEmployeeByLogin(String login, Employee employee){
+        log.info("Updating employee");
+        var employeeToUpdate = employeeRepository.findByLogin(employee.getLogin()).orElseThrow();
+        employeeToUpdate.setEmployeeId(employee.getEmployeeId());
         employeeToUpdate.setFirstName(employee.getFirstName());
         employeeToUpdate.setLastName(employee.getLastName());
         employeeToUpdate.setLogin(employee.getLogin());
+        employeeToUpdate.setStartDate(employee.getStartDate());
         return employeeRepository.save(employeeToUpdate);
     }
 

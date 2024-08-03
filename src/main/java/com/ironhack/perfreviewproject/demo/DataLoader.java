@@ -1,6 +1,5 @@
 package com.ironhack.perfreviewproject.demo;
 
-import com.ironhack.perfreviewproject.model.Employee;
 import com.ironhack.perfreviewproject.model.Role;
 import com.ironhack.perfreviewproject.model.User;
 import com.ironhack.perfreviewproject.service.EmployeeService;
@@ -16,7 +15,6 @@ public class DataLoader implements CommandLineRunner {
 
     private final UserService userService;
     private final RoleService roleService;
-    private final EmployeeService employeeService;
 
     @Override
     public void run(String... args) throws Exception {
@@ -36,7 +34,6 @@ public class DataLoader implements CommandLineRunner {
         roleService.addRoleToUser("chris", "ROLE_USER");
         roleService.addRoleToUser("rattabar", "ROLE_ADMIN");
 
-        employeeService.addEmployee(new Employee(546L, "AAA", "EEE", "area"));
 
     }
 
