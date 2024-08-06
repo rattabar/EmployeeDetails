@@ -1,8 +1,6 @@
-package com.ironhack.perfreviewproject.controller;
+package com.ironhack.perfreviewproject.security;
 
 
-import com.ironhack.perfreviewproject.model.User;
-import com.ironhack.perfreviewproject.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

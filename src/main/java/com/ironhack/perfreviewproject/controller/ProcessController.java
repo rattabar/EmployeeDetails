@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/processes")
+@RequestMapping("/api/processes")
 @RequiredArgsConstructor
 
 public class ProcessController {
@@ -31,6 +31,25 @@ public class ProcessController {
          return processService.addNewProcess(process);
 
      }
+
+    @DeleteMapping("/{processId}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteEmployee(@PathVariable("processId") Long processId){
+        processService.deleteProcess(processId);
+    }
+
+
+
+
+
+
+
+
+//    @PostMapping("/processes/add-to-employee")
+//    @ResponseStatus(HttpStatus.NO_CONTENT)
+//    public void addRoleToUser(@RequestBody RoleToUserDTO roleToUserDTO) {
+//        processServiceImpl.addProcessToEmployee(roleToUserDTO.getUsername(), roleToUserDTO.getRoleName());
+//    }
 
 
 }

@@ -1,6 +1,11 @@
 package com.ironhack.perfreviewproject.demo;
 
 import com.ironhack.perfreviewproject.model.*;
+import com.ironhack.perfreviewproject.model.Process;
+import com.ironhack.perfreviewproject.security.Role;
+import com.ironhack.perfreviewproject.security.RoleService;
+import com.ironhack.perfreviewproject.security.User;
+import com.ironhack.perfreviewproject.security.UserService;
 import com.ironhack.perfreviewproject.service.*;
 import lombok.RequiredArgsConstructor;
 import net.datafaker.Faker;
@@ -44,11 +49,15 @@ public class DataLoader implements CommandLineRunner {
         }
 
         // Add new Confirmed Employee
-            confirmedEmployeeService.addConfirmedEmployee(new ConfirmedEmployee("Ayoub","RATTAB", "rattabar", "2019-06-30",15L, 5L));
+        confirmedEmployeeService.addConfirmedEmployee(new ConfirmedEmployee("Ayoub","RATTAB", "rattabar", "2019-06-30",15L, 5L));
 
         // Add new Temporary Employee
         temporaryEmployeeService.addTemporaryEmployee(new TemporaryEmployee("Andreas", "Iniesta", "ainiesta", "2024-06-01","2024-08-30"));
 
+
+        for (int i = 0; i < 5; i++) {
+            processService.addNewProcess(new Process(fk.job().position(), fk.name().firstName(), fk.date().birthday(0, 5).toString()));
+        }
 
 
 

@@ -5,9 +5,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
+
+import static jakarta.persistence.FetchType.EAGER;
 
 
 @Entity
@@ -24,20 +24,35 @@ public class Employee {
     private String firstName;
     private String lastName;
     private String login;
-        private String startDate;
+    private String startDate;
 
     public Employee(String firstName, String lastName, String login, String startDate) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.login = login;
         this.startDate = startDate;
+
+
+
+
+
+//    @ManyToMany(fetch = EAGER)
+//    @JoinTable(
+//            name = "employee_processes",
+//            joinColumns = @JoinColumn(name = "employee_id"),
+//            inverseJoinColumns = @JoinColumn(name = "process_id")
+//    )
+//    private Collection<Process> processes = new ArrayList<>();
+//
+//    public Employee(Collection<Process> processes) {
+//        this.processes = processes;
     }
 
-//    @ManyToMany(fetch = FetchType.EAGER)
-//    @JoinTable(
-//            name = "employees_processes",
-//            joinColumns = @JoinColumn(name = "employee_id"),
-//            inverseJoinColumns = @JoinColumn(name = "processId")
-//    )
-//    private Set<Employee> employees = new HashSet<>();
+//    public Collection<Process> getProcesses() {
+//        return processes;
+//    }
+//
+//    public void setProcesses(Collection<Process> processes) {
+//        this.processes = processes;
+
 }

@@ -1,8 +1,8 @@
-package com.ironhack.perfreviewproject.service.impl;
+package com.ironhack.perfreviewproject.security.impl;
 
-import com.ironhack.perfreviewproject.model.User;
-import com.ironhack.perfreviewproject.repository.UserRepository;
-import com.ironhack.perfreviewproject.service.UserService;
+import com.ironhack.perfreviewproject.security.User;
+import com.ironhack.perfreviewproject.security.UserRepository;
+import com.ironhack.perfreviewproject.security.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

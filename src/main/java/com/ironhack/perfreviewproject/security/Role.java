@@ -1,4 +1,4 @@
-package com.ironhack.perfreviewproject.model;
+package com.ironhack.perfreviewproject.security;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;

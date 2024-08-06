@@ -8,17 +8,20 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.OptionalInt;
 
 
 @Service
 @RequiredArgsConstructor
 @Slf4j
-public class EmployeeService {
+public class EmployeeService{
     private final EmployeeRepository employeeRepository;
 
     public List<Employee> findAll() {
         return employeeRepository.findAll();
+    }
+
+    public Employee findByLogin(String login){
+        return employeeRepository.findByLogin(login);
     }
 
     public Employee addEmployee(Employee employee) {
@@ -36,16 +39,14 @@ public class EmployeeService {
         return employeeRepository.save(employeeToUpdate);
     }
 
-//    public Optional<Employee> updateEmployeeByLogin(String login, Employee employee){
-//        log.info("Updating employee");
-//        var employeeToUpdate = employeeRepository.findByLogin(employee.getLogin()).orElseThrow();
-//        employeeToUpdate.setEmployeeId(employee.getEmployeeId());
-//        employeeToUpdate.setFirstName(employee.getFirstName());
-//        employeeToUpdate.setLastName(employee.getLastName());
-//        employeeToUpdate.setLogin(employee.getLogin());
-//        employeeToUpdate.setStartDate(employee.getStartDate());
-//        return employeeRepository.save(employeeToUpdate);
-//    }
+    public Employee updateEmployeeByLogin(String login, Employee employee){
+        log.info("Updating employee");
+        var employeeToUpdate = employeeRepository.findByLogin(login);
+        employeeToUpdate.setFirstName(employee.getFirstName());
+        employeeToUpdate.setLastName(employee.getLastName());
+        employeeToUpdate.setStartDate(employee.getStartDate());
+        return employeeRepository.save(employeeToUpdate);
+    }
 
     public void deleteEmployee(Long employeeId){
         log.info("Deleting employee with id{}", employeeId);

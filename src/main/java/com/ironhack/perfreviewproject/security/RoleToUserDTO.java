@@ -1,4 +1,4 @@
-package com.ironhack.perfreviewproject.dto;
+package com.ironhack.perfreviewproject.security;
 
 import lombok.Data;
 

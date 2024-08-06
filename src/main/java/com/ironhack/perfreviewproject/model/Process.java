@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.*;
 
 
+
+@Getter
+@Setter
 @Entity
 @NoArgsConstructor
 @Data
@@ -26,6 +29,10 @@ public class Process {
         this.completionDate = completionDate;
     }
 
-//    @ManyToMany(mappedBy = "employees", fetch = FetchType.LAZY)
-//    private Set<ProcessTraining> processes = new HashSet<>();
+
+//    @ManyToMany(mappedBy = "processes", fetch = LAZY)
+//    @JsonIgnore
+//    private Collection<Employee> employees = new ArrayList<>();
+
+
 }

@@ -1,6 +1,4 @@
-package com.ironhack.perfreviewproject.service;
-
-import com.ironhack.perfreviewproject.model.Role;
+package com.ironhack.perfreviewproject.security;
 
 public interface RoleService {
 

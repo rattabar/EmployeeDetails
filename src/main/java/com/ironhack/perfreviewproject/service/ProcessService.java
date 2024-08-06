@@ -1,6 +1,7 @@
 package com.ironhack.perfreviewproject.service;
 
 
+import com.ironhack.perfreviewproject.model.Employee;
 import com.ironhack.perfreviewproject.model.Process;
 import com.ironhack.perfreviewproject.repository.ProcessRepository;
 import lombok.RequiredArgsConstructor;
@@ -8,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -20,13 +22,16 @@ public class ProcessService {
         return processRepository.findAll();
     }
 
+
+
     public Process addNewProcess(Process process) {
         log.info("Adding process {}", process);
         return processRepository.save(process);
     }
 
-
-
-
+    public void deleteProcess(Long processId){
+        log.info("Deleting employee with id{}", processId);
+        processRepository.deleteById(processId);
+    }
 }
 

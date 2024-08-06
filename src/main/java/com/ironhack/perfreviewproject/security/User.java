@@ -1,4 +1,4 @@
-package com.ironhack.perfreviewproject.model;
+package com.ironhack.perfreviewproject.security;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

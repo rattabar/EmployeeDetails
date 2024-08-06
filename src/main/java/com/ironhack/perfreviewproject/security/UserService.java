@@ -1,6 +1,4 @@
-package com.ironhack.perfreviewproject.service;
-
-import com.ironhack.perfreviewproject.model.User;
+package com.ironhack.perfreviewproject.security;
 
 import java.util.List;
 

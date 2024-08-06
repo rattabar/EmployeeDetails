@@ -1,4 +1,4 @@
-package com.ironhack.perfreviewproject.dto;
+package com.ironhack.perfreviewproject.security.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

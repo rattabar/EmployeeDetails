@@ -1,10 +1,10 @@
-package com.ironhack.perfreviewproject.service.impl;
+package com.ironhack.perfreviewproject.security.impl;
 
-import com.ironhack.perfreviewproject.model.Role;
-import com.ironhack.perfreviewproject.model.User;
-import com.ironhack.perfreviewproject.repository.RoleRepository;
-import com.ironhack.perfreviewproject.repository.UserRepository;
-import com.ironhack.perfreviewproject.service.RoleService;
+import com.ironhack.perfreviewproject.security.Role;
+import com.ironhack.perfreviewproject.security.User;
+import com.ironhack.perfreviewproject.security.RoleRepository;
+import com.ironhack.perfreviewproject.security.UserRepository;
+import com.ironhack.perfreviewproject.security.RoleService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

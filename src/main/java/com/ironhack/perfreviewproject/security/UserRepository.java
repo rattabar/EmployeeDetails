@@ -1,6 +1,5 @@
-package com.ironhack.perfreviewproject.repository;
+package com.ironhack.perfreviewproject.security;
 
-import com.ironhack.perfreviewproject.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
